@@ -36,16 +36,51 @@ def sort_by_cohort(filename):
         ex. all_students = [winter_15, spring_15, summer_15, tas]
 
     """
+    cohort_data = open(filename)
 
     all_students = []
     winter_15 = []
     spring_15 = []
     summer_15 = []
     tas = []
+    
+    for line in cohort_data:
+        data = line.split('|')
+        if data[4] == 'TA' or data[4] == 'I':   
+            continue
+        all_students.append(data[0])
+          # need to account for TAs names
 
+    print all_students
+
+    # for line in cohort_data:
+    #     data = line.split('|')
+    #     winter_15.append(data[0])
+
+    # print winter_15
+
+    # for line in cohort_data:
+    #     data = line.split('|')
+    #     spring_15.append(data[0])
+
+    # print spring_15
+
+    # for line in cohort_data:
+    #     data = line.split('|')
+    #     summer_15.append(data[0])
+
+    # print summer_15  
+
+    # for line in cohort_data:
+    #     data = line.split('|')
+    #     tas.append(data[0])   #need to account for student names
+
+    # print tas               
+
+sort_by_cohort('cohort_data.txt')
     # Code goes here
 
-    return all_students
+    #return all_students
 
 
 def students_by_house(filename):
